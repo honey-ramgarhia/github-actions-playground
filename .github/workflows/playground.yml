@@ -5,8 +5,8 @@ on:
     branch: [master, dev]
 
 env:
-  BRANCH_NAME: ${{ github.ref | sed -e "s#refs/heads/##g" }}
-  
+  BRANCH_NAME: ${{ github.ref }}
+
 jobs:
   test-job:
     runs-on: ubuntu-latest
@@ -14,4 +14,5 @@ jobs:
       - run: echo ${{ github.ref }}
       - run: echo ${{ github.head_ref }}
       - run: echo ${{ github.ref }} | sed -e "s#refs/heads/##g"
+      - run: echo "BRANCH_NAME=$(echo ${{ github.ref }} | sed -e "s#refs/heads/##g")" >> $GITHUB_ENV
       - run: echo $BRANCH_NAME
