@@ -1,7 +1,8 @@
 name: Playground
 
 on:
-  branch: [master, dev]
+  push:
+    branch: [master, dev]
 
 jobs:
   test-job:
