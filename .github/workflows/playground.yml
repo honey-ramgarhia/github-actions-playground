@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          if [[ ${{ github.ref }} == 'refs/heads/dev' ]]
-            greet='hello'
+          if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
+            greet=hello
           else
-            greet='welcome'
+            greet=welcome
           fi
       - run: echo $greet
       - run: echo ${{ github.ref }}
