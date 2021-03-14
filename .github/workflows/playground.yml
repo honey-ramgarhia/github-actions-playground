@@ -11,14 +11,15 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - id: set-vars
+        run: |
           declare greet
           if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
-            greet=hello
+            echo '::set-output name=greet::hello'
           else
-            greet=welcome
+            echo '::set-output name=greet::welcome'
           fi
-      - run: echo $greet
+      - run: echo ${{ set-vars.outputs.greet }}
       - run: echo ${{ github.ref }}
       - run: echo ${{ github.head_ref }}
       - run: echo ${{ github.ref }} | sed -e "s#refs/heads/##g"
