@@ -13,9 +13,9 @@ jobs:
     steps:
       - run: |
           if [[ ${{ github.ref }} == 'refs/heads/dev' ]]
-            greet=hello
+            greet='hello'
           else
-            greet=welcome
+            greet='welcome'
           fi
       - run: echo $greet
       - run: echo ${{ github.ref }}
