@@ -19,7 +19,7 @@ jobs:
           else
             echo '::set-output name=greet::welcome'
           fi
-      - run: echo ${{ set-vars.outputs.greet }}
+      - run: echo ${{ steps.set-vars.outputs.greet }}
       - run: echo ${{ github.ref }}
       - run: echo ${{ github.head_ref }}
       - run: echo ${{ github.ref }} | sed -e "s#refs/heads/##g"
