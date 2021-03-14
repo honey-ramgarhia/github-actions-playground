@@ -11,6 +11,13 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+          if [[ ${{ github.ref }} == 'refs/heads/dev' ]]
+            greet=hello
+          else
+            greet=welcome
+          fi
+      - run: echo $greet
       - run: echo ${{ github.ref }}
       - run: echo ${{ github.head_ref }}
       - run: echo ${{ github.ref }} | sed -e "s#refs/heads/##g"
