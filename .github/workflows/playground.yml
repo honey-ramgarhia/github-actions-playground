@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          declare greet \
+          declare greet
           if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
             greet=hello
           else
